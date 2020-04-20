@@ -676,7 +676,7 @@
           this.updateValue(option);
         } else {
             if(this.clearOptionOnSelect) {
-                deselect(option)
+                this.deselect(option)
             }
         }
         this.onAfterSelect(option)
