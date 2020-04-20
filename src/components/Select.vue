@@ -190,6 +190,15 @@
       },
 
       /**
+       * Removes option on select if already selected
+       * @type {Boolean}
+       */
+      clearOptionOnSelect: {
+        type: Boolean,
+        default: false
+      },
+    
+      /**
        * Enables/disables clearing the search text when an option is selected.
        * @type {Boolean}
        */
@@ -665,6 +674,10 @@
             option = this.selectedValue.concat(option)
           }
           this.updateValue(option);
+        } else {
+            if(this.clearOptionOnSelect) {
+                deselect(option)
+            }
         }
         this.onAfterSelect(option)
       },
