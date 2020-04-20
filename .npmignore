@@ -2,4 +2,5 @@
 !src/**/*
 !dist/**/*
 !build/**/*
+!package.json
 .DS_Store
