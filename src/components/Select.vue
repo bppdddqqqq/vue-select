@@ -333,7 +333,7 @@
        * & there is no value selected.
        * @return {String} Placeholder text
        */
-      searchPlaceholder: {
+      searchPlaceholderFunction: {
         type: Function,
         default: function () {
           if (this.isValueEmpty && this.placeholder) {
@@ -1161,16 +1161,25 @@
           return this.noDrop ? false : this.open && !this.mutableLoading
         },
 
-        /**
-         * The currently displayed options, filtered
-         * by the search elements value. If tagging
-         * true, the search text will be prepended
-         * if it doesn't already exist.
-         *
-         * @return {array}
-         */
-        filteredOptions () {
-          const optionList = [].concat(this.optionList);
+      /**
+       * Return the placeholder string if it's set
+       * & there is no value selected.
+       * @return {String} Placeholder text
+       */
+      searchPlaceholder() {
+        return this.searchPlaceholderFunction()
+      },
+
+      /**
+       * The currently displayed options, filtered
+       * by the search elements value. If tagging
+       * true, the search text will be prepended
+       * if it doesn't already exist.
+       *
+       * @return {array}
+       */
+      filteredOptions() {
+        const optionList = [].concat(this.optionList);
 
           if (!this.filterable && !this.taggable) {
             return optionList;
