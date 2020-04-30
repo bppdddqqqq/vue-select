@@ -197,7 +197,7 @@
         type: Boolean,
         default: false
       },
-    
+
       /**
        * Enables/disables clearing the search text when an option is selected.
        * @type {Boolean}
@@ -326,6 +326,19 @@
             return console.warn(warning, option, e);
           }
         },
+      },
+
+      /**
+       * Return the placeholder string if it's set
+       * & there is no value selected.
+       * @return {String} Placeholder text
+       */
+      searchPlaceholder: {
+        type: Function,
+        default: function () {
+          if (this.isValueEmpty && this.placeholder) {
+           return this.placeholder;
+          }
       },
 
       /**
@@ -1137,17 +1150,6 @@
        */
       dropdownOpen() {
         return this.noDrop ? false : this.open && !this.mutableLoading
-      },
-
-      /**
-       * Return the placeholder string if it's set
-       * & there is no value selected.
-       * @return {String} Placeholder text
-       */
-      searchPlaceholder() {
-        if (this.isValueEmpty && this.placeholder) {
-          return this.placeholder;
-        }
       },
 
       /**
