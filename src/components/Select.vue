@@ -340,6 +340,7 @@
             return this.placeholder;
           }
         },
+      }
 
         /**
          * Select the current value if selectOnTab is enabled
@@ -1212,5 +1213,4 @@
         }
       }
     }
-  }
 </script>
